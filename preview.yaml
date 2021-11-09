@@ -9,15 +9,15 @@ spec:
   project: previews
   source:
     path: helm
-    repoURL: https://github.com/vfarcic/devops-toolkit.git
+    repoURL: https://github.com/chrispsplash/devops-toolkit.git
     targetRevision: HEAD
     helm:
       values: |
         image:
-          repository: vfarcic/devops-toolkit
+          repository: 382093569472.dkr.ecr.us-east-1.amazonaws.com/devops-toolkit
           tag: {{.IMAGE_TAG}}
         ingress:
-          host: {{.APP_ID}}.devopstoolkitseries.com
+          host: {{.APP_ID}}.18.197.29.220.nip.io
       version: v3
   destination:
     namespace: "{{.APP_ID}}"
@@ -27,4 +27,4 @@ spec:
       selfHeal: true
       prune: true
     syncOptions:
-    - CreateNamespace=true
+      - CreateNamespace=true
