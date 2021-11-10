@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: "{{.APP_ID}}"
-  namespace: argocd
+  namespace: argo-cd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
@@ -14,7 +14,7 @@ spec:
     helm:
       values: |
         image:
-          repository: 382093569472.dkr.ecr.us-east-1.amazonaws.com/devops-toolkit
+          repository: 454078549212.dkr.ecr.eu-central-1.amazonaws.com/devops-toolkit
           tag: {{.IMAGE_TAG}}
         ingress:
           host: {{.APP_ID}}.18.197.29.220.nip.io
